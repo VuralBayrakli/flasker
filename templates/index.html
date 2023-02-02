@@ -1,13 +1,23 @@
-<h1> Hello World </h1>
-<p>Web sayfamıza hoşgeldiniz.</p>
-<p>{{ stuff|safe }} </p> <!-- <strong>...</strong> oldugunda dodru calismasi icin safe kullanilmali  -->
+{% extends 'base.html' %}
 
-{%for i in favos%}
+{% block content%}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong> {{ message }} </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+         
+    {% endfor %}
+    <h1> Hello World </h1>
+    <p>Web sayfamıza hoşgeldiniz.</p>
+    <p>{{ stuff|safe }} </p> <!-- <strong>...</strong> oldugunda dodru calismasi icin safe kullanilmali  -->
+
+    {%for i in favos%}
 
 
-{{i }}<br>
+    {{ i }}<br>
 
-{%endfor%}
-
+    {%endfor%}
+{% endblock %}
 
 
